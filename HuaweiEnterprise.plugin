@@ -13,7 +13,7 @@ DOMAIN-SUFFIX, ads.huawei.com, REJECT
 
 [Script]
 # 拦截并过滤下发的动态配置与广告设置
-http-response ^https?:\/\/api\.welink\.huaweicloud\.com\/mcloud\/mag\/ProxyForText\/usersettings\/api\/v1\/configure\/getsettingsbykey script-path = https://raw.githubusercontent.com/YourUsername/rules/main/scripts/huawei_enterprise.js, requires-body = true, tag = 移除华为企业服务开屏广告
+http-response ^https?:\/\/api\.welink\.huaweicloud\.com\/mcloud\/mag\/ProxyForText\/usersettings\/api\/v1\/configure\/getsettingsbykey script-path = https://raw.githubusercontent.com/2Vrkswz/HuaweiEnterprise_NoAD/refs/heads/main/huawei_enterprise.js, requires-body = true, tag = 移除华为企业服务开屏广告
 
 [Mitm]
 hostname = api.welink.huaweicloud.com
