@@ -1,0 +1,19 @@
+#!name = 华为企业业务去广告
+#!desc = 移除华为企业业务/伙伴App开屏广告、弹窗推广及数据埋点
+#!author = 2Vrks
+#!homepage = https://raw.githubusercontent.com
+#!icon = https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/68/56/0d/68560d19-d38d-c7db-bf40-fc6f37303414/Placeholder.mill/400x400bb-75.webp
+#!date = 2026-10-10
+
+[Rule]
+# 拦截华为分析与数据追踪接口
+DOMAIN, hwa.his.huawei.com, REJECT
+# 拦截华为推送与推广广告常见域名（根据实际测试需要启用）
+DOMAIN-SUFFIX, ads.huawei.com, REJECT
+
+[Script]
+# 拦截并过滤下发的动态配置与广告设置
+http-response ^https?:\/\/api\.welink\.huaweicloud\.com\/mcloud\/mag\/ProxyForText\/usersettings\/api\/v1\/configure\/getsettingsbykey script-path = https://raw.githubusercontent.com/YourUsername/rules/main/scripts/huawei_enterprise.js, requires-body = true, tag = 移除华为企业服务开屏广告
+
+[Mitm]
+hostname = api.welink.huaweicloud.com
